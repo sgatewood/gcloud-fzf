@@ -203,7 +203,7 @@ brews:
       #
       # Default: default repository branch.
       # Templates: allowed.
-      branch: main
+      branch: "{{ .ProjectName }}-{{.Version}}"
 
       # Optionally a token can be provided, if it differs from the token
       # provided to GoReleaser
