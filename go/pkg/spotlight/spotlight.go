@@ -50,7 +50,9 @@ func selectProject(ctx context.Context) (string, error) {
 		func(i int) string {
 			return projects[i].ProjectId
 		},
-		fuzzyfinder.WithContext(ctx))
+		fuzzyfinder.WithContext(ctx),
+		fuzzyfinder.WithHeader("select a project"),
+		fuzzyfinder.WithPromptString("start typing: "))
 	if err != nil {
 		return "", err
 	}
@@ -71,7 +73,9 @@ func selectService(ctx context.Context) (string, error) {
 		func(i int) string {
 			return keys[i]
 		},
-		fuzzyfinder.WithContext(ctx))
+		fuzzyfinder.WithContext(ctx),
+		fuzzyfinder.WithHeader("select a service"),
+		fuzzyfinder.WithPromptString("start typing: "))
 	if err != nil {
 		return "", err
 	}
