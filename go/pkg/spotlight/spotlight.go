@@ -87,7 +87,7 @@ func getAllProjects(ctx context.Context) ([]*cloudresourcemanager.Project, error
 	}
 	r, err := svc.Projects.List().Context(ctx).Do()
 	if err != nil {
-		return nil, errg
+		return nil, err
 	}
 	return r.Projects, nil
 }
