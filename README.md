@@ -1,6 +1,6 @@
-# gcloud-fzf (WIP)
+# gcloud-fzf
 
-About 100x a day I have to open X gcloud service for Y gcloud project.
+About 100x a day I have to open X gcloud UI for Y gcloud project.
 
 I don't like gcloud's UI for this, so this is a CLI to fzf the page you want.
 

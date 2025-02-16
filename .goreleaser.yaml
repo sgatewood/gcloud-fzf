@@ -50,201 +50,20 @@ release:
     Released by [GoReleaser](https://github.com/goreleaser/goreleaser).
 
 brews:
-  -
-    name: "{{ .ProjectName }}"
-
-    # GOARM to specify which 32-bit arm version to use if there are multiple
-    # versions from the build section. Brew formulas support only one 32-bit
-    # version.
-    #
-    # Default: 6.
-    # goarm: 6
-
-    # GOAMD64 to specify which amd64 version to use if there are multiple
-    # versions from the build section.
-    #
-    # Default: v1.
-    # goamd64: v1
-
+  - name: "{{ .ProjectName }}"
     url_template: "https://github.com/sgatewood/gcloud-fzf/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
-    # url_headers:
-    #   - 'Authorization: bearer #{ENV["GITHUB_TOKEN"]}'
-
-    # Allows you to set a custom download strategy. Note that you'll need
-    # to implement the strategy and add it to your tap repository.
-    # Example: https://docs.brew.sh/Formula-Cookbook#specifying-the-download-strategy-explicitly
-    # download_strategy: CurlDownloadStrategy
-
-    # Allows you to add a custom require_relative at the top of the formula
-    # template.
-    # custom_require: custom_download_strategy
-
-    # Git author used to commit to the repository.
-    # commit_author:
-    #   name: #{ENV["GIT_NAME"]}
-    #   email: #{ENV["GIT_EMAIL"]}
-
-    # The project name and current git tag are used in the format string.
-    #
-    # Templates: allowed.
     commit_msg_template: "Brew formula update for {{ .ProjectName }} version {{ .Tag }}"
-
-    # Directory inside the repository to put the formula.
     directory: Formula
-
-    # Caveats for the user of your binary.
-    # caveats: "How to use this binary"
-
-    # Your app's homepage.
-    #
-    # Default: inferred from global metadata.
-    # homepage: "https://github.com/sgatewood/gcloud-fzf"
-
-    # Your app's description.
-    #
-    # Templates: allowed.
-    # Default: inferred from global metadata.
-    # description: "Software to create fast and easy drum rolls."
-
-    # SPDX identifier of your app's license.
-    #
-    # Default: inferred from global metadata.
-    # license: "MIT"
-
-    # Setting this will prevent goreleaser to actually try to commit the updated
-    # formula - instead, the formula file will be stored on the dist directory
-    # only, leaving the responsibility of publishing it to the user.
-    # If set to auto, the release will not be uploaded to the homebrew tap
-    # in case there is an indicator for prerelease in the tag e.g. v1.0.0-rc1
-    #
-    # Templates: allowed.
     skip_upload: false
-
-    # Custom block for brew.
-    # Can be used to specify alternate downloads for devel or head releases.
-    # custom_block: |
-    #   head "https://github.com/some/package.git"
-    #   ...
-
-    # Packages your package depends on.
-    # dependencies:
-    #   - name: git
-    #     # Allow to specify the OS in which the dependency is required.
-    #     # Valid options are `mac` and `linux`.
-    #     os: mac
-    #   - name: zsh
-    #     type: optional
-    #   - name: fish
-    #     version: v1.2.3
-    #   # if providing both version and type, only the type will be taken into
-    #   # account.
-    #   - name: elvish
-    #     type: optional
-    #     version: v1.2.3
-
-
-    # Packages that conflict with your package.
-    # conflicts:
-    #   - svn
-    #   - bash
-
-    # Specify for packages that run as a service.
-    # plist: |
-    #   <?xml version="1.0" encoding="UTF-8"?>
-    #   # ...
-
-    # # Service block.
-    # service: |
-    #   run: foo/bar
-    #   # ...
-
-    # So you can `brew test` your formula.
-    #
-    # Template: allowed
     test: |
       system "#{bin} --version"
-
-    # Custom install script for brew.
-    #
-    # Template: allowed
-    # Default: 'bin.install "BinaryName"'.
-    # install: |
-    #   bin.install "some_other_name"
-    #   bash_completion.install "completions/foo.bash" => "foo"
-    #   # ...
-
-    # Additional install instructions so you don't need to override `install`.
-    #
-    # Template: allowed
-    # extra_install: |
-    #   bash_completion.install "completions/foo.bash" => "foo"
-    #   man1.install "man/foo.1.gz"
-    #   # ...
-
-    # Custom post_install script for brew.
-    # # Could be used to do any additional work after the "install" script
-    # post_install: |
-    #     etc.install "app-config.conf"
-    #   # ...
-
-    # Repository to push the generated files to.
     repository:
-      # Repository owner.
-      #
-      # Templates: allowed.
       owner: sgatewood
-
-      # Repository name.
-      #
-      # Templates: allowed.
       name: homebrew-tap
-
-      # Optionally a branch can be provided.
-      #
-      # Default: default repository branch.
-      # Templates: allowed.
       branch: "{{ .ProjectName }}-{{.Version}}"
-
-      # Optionally a token can be provided, if it differs from the token
-      # provided to GoReleaser
-      #
-      # Templates: allowed.
-      # token: "{{ .Env.GITHUB_PERSONAL_AUTH_TOKEN }}"
-
-      # Optionally specify if this is a token from another SCM, allowing to
-      # cross-publish.
-      #
-      # Only taken into account if `token` is set.
-      #
-      # Valid options:
-      # - 'github'
-      # - 'gitlab'
-      # - 'gitea'
-      #
-      # This feature is only available in GoReleaser Pro.
-      # token_type: "github"
-
-      # Sets up pull request creation instead of just pushing to the given branch.
-      # Make sure the 'branch' property is different from base before enabling
-      # it.
-      #
-      # This might require a personal access token.
       pull_request:
-        # Whether to enable it or not.
         enabled: true
-
-        # Whether to open the PR as a draft or not.
         draft: false
-
-        # If the pull request template has checkboxes, enabling this will
-        # check all of them.
-        #
-        # This feature is only available in GoReleaser Pro, and when the pull
-        # request is being opened on GitHub.
-        # check_boxes: false
-
-        # Base can also be another repository, in which case the owner and name
-        # above will be used as HEAD, allowing cross-repository pull requests.
         base:
           owner: sgatewood
           name: homebrew-tap
