@@ -18,4 +18,4 @@ fi
 
 git tag -a "${tag}" -m "${message}"
 git push origin "${tag}"
-GITHUB_TOKEN=$(gh auth token) goreleaser release
+GITHUB_TOKEN=$(gh auth token) goreleaser release --clean
