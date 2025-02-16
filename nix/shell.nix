@@ -2,6 +2,7 @@
 pkgs.mkShell {
   packages = with pkgs; [
     fzf
+    go
     jq
     jsonnet
     just
