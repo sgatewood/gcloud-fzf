@@ -22,4 +22,5 @@ git push origin "${tag}"
 GIT_NAME=$(git config get user.name)
 GIT_EMAIL=$(git config get user.email)
 GITHUB_TOKEN=$(gh auth token) 
+export GIT_NAME GIT_EMAIL GITHUB_TOKEN
 goreleaser release --clean
