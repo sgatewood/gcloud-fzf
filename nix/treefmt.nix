@@ -5,6 +5,8 @@
     nixfmt = { };
     just = { };
     gofmt = { };
+    mdformat = { };
+    yamlfmt = { };
     shfmt = {
       includes = [
         ".envrc"
