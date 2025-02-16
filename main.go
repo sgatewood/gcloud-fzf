@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"gcloud-spotlight/go/pkg/spotlight"
+	"github.com/sgatewood/gcloud-fzf/go/pkg/spotlight"
 	"github.com/urfave/cli/v3"
 )
 
