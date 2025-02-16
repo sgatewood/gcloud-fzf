@@ -1,4 +1,4 @@
-module gcloud-spotlight
+module github.com/sgatewood/gcloud-fzf
 
 go 1.23.5
 
