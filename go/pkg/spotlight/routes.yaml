@@ -1,7 +1,16 @@
-route1: www.example.com?route=route1;project=<P>
-route2: www.example.com?route=route2;project=<P>
-route3: www.example.com?route=route3;project=<P>
-route4: www.example.com?route=route4;project=<P>
-route5: www.example.com?route=route5;project=<P>
-route6: www.example.com?route=route6;project=<P>
-route7: www.example.com?route=route7;project=<P>
+Buckets:              https://console.cloud.google.com/storage/browser?project=<P>
+Cloud Service Mesh:   https://console.cloud.google.com/net-services/trafficdirector/services/list?project=<P>
+Cluster:              https://console.cloud.google.com/kubernetes/list/overview?project=<P>
+Disks:                https://console.cloud.google.com/compute/disks?project=<P>
+Dns:                  https://console.cloud.google.com/net-services/dns/zones?project=<P>
+IP Addresses:         https://console.cloud.google.com/networking/addresses/list?project=<P>
+Logs:                 https://console.cloud.google.com/logs/query;duration=PT1H?project=<P>
+Error logs:           https://console.cloud.google.com/logs/query;query=severity%3E%3DERROR;duration=PT1H?project=<P>
+Load Balancers:       https://console.cloud.google.com/net-services/loadbalancing/list/loadBalancers?project=<P>
+Secrets:              https://console.cloud.google.com/security/secret-manager?project=<P>
+Service Accounts:     https://console.cloud.google.com/iam-admin/serviceaccounts?project=<P>
+Snapshots:            https://console.cloud.google.com/compute/snapshots?project=<P>
+VMs:                  https://console.cloud.google.com/compute/instances?project=<P>
+Artifacts:            https://console.cloud.google.com/artifacts/browse/<P>?project=<P>
+Cloud Armor Rules:    https://console.cloud.google.com/net-security/securitypolicies/list?project=<P>
+

@@ -3,7 +3,6 @@ package spotlight
 import (
 	"context"
 	_ "embed"
-	"log"
 	"maps"
 	"slices"
 	"strings"
@@ -22,7 +21,6 @@ func Spotlight(ctx context.Context) error {
 	if err != nil {
 		return err
 	}
-	log.Fatalf("ok it's: %s", url)
 	return open.Run(url)
 }
 
