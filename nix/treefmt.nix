@@ -17,5 +17,6 @@
   settings.global.excludes = [
     ".editorconfig"
     "justfile"
+    ".goreleaser.yaml"
   ];
 }

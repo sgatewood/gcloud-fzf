@@ -1,6 +1,9 @@
 format:
     nix fmt
 
+run:
+    go run main.go
+
 build-snapshot:
     goreleaser build --snapshot --clean 
 
