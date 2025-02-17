@@ -37,7 +37,7 @@ func getUrl(ctx context.Context) (string, error) {
 		return "", fmt.Errorf("could not get project selection: %w", err)
 	}
 
-	service, err := selectService(ctx)
+	service, err := selectService(ctx, project)
 	if err != nil {
 		return "", fmt.Errorf("could not get service selection: %w", err)
 	}
@@ -66,7 +66,7 @@ func selectProject(ctx context.Context) (string, error) {
 	return projects[selection].ProjectId, nil
 }
 
-func selectService(ctx context.Context) (string, error) {
+func selectService(ctx context.Context, project string) (string, error) {
 	var routesMap map[string]string
 	err := yaml.Unmarshal([]byte(routes), &routesMap)
 	if err != nil {
@@ -81,7 +81,7 @@ func selectService(ctx context.Context) (string, error) {
 			return keys[i]
 		},
 		fuzzyfinder.WithContext(ctx),
-		fuzzyfinder.WithHeader("select a service"),
+		fuzzyfinder.WithHeader(fmt.Sprintf("select a service to open for %s", project)),
 		fuzzyfinder.WithPromptString("start typing: "))
 	if err != nil {
 		return "", err
