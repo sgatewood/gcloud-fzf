@@ -10,6 +10,7 @@ Load Balancers: https://console.cloud.google.com/net-services/loadbalancing/list
 Secrets: https://console.cloud.google.com/security/secret-manager?project=<P>
 Service Accounts: https://console.cloud.google.com/iam-admin/serviceaccounts?project=<P>
 Snapshots: https://console.cloud.google.com/compute/snapshots?project=<P>
+Snapshot Schedules: https://console.cloud.google.com/compute/snapshots?project=<P>&tab=schedules
 VMs: https://console.cloud.google.com/compute/instances?project=<P>
 Artifacts: https://console.cloud.google.com/artifacts/browse/<P>?project=<P>
 Cloud Armor Rules: https://console.cloud.google.com/net-security/securitypolicies/list?project=<P>
